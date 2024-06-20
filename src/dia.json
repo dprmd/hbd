@@ -1,0 +1,22 @@
+{
+  "name": "Nandya",
+  "birth": {
+    "date": 27,
+    "month": 7,
+    "monthName": "Juli",
+    "year": 2006,
+    "hourMinuteSecond": "00:00:00"
+  },
+  "words": [
+    "Selamat Ulang Tahun",
+    "Semoga Sehat Selalu",
+    "Sukses dan Bahagia",
+    "Kalo Ketemu Jangan Buang Muka ;)"
+  ],
+  "targetYear": 2024,
+  "HDBReachPathSong": "music/slipping-through-my-fingers.mp3",
+  "waitSong": {
+    "title": "Seandainya",
+    "path": "music/seandainya.mp3"
+  }
+}
