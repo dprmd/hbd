@@ -8,14 +8,27 @@ import PlayWaitSong from "./PlayWaitSong";
 
 export default function HBDWait({ HBDDay, setHBDDay }) {
   document.title = "Waktu Terus Berjalan";
+
   const date = new Date();
+  const dateNow = date.getDate();
+  const monthNow = date.getMonth() + 1;
+  const yearNow = date.getFullYear();
+
+  let targetYear;
+  if (dateNow < dia.birth.date && monthNow <= dia.birth.month) {
+    targetYear = yearNow;
+  }
+  if (dateNow > dia.birth.date && monthNow >= dia.birth.month) {
+    targetYear = yearNow + 1;
+  }
+
   const [isHBDReach, setIsHBDReach] = useState(HBDDay);
 
   function renderer({ days, hours, minutes, seconds }) {
     return (
       <div className="absolute p-4 bg-black border border-slate-800 rounded-t-md w-[80%] sm:w-[400px] box-border">
         <span className="font-bold mb-2 block italic text-sm text-gray-300">
-          Menuju {dia.birth.date} {dia.birth.monthName} {dia.targetYear}
+          Menuju {dia.birth.date} {dia.birth.monthName} {targetYear}
         </span>
         <span className="mb-2 block font-poppins text-sm text-gray-300">
           Hitung Mundur Dalam
@@ -31,7 +44,7 @@ export default function HBDWait({ HBDDay, setHBDDay }) {
   function timeLeft() {
     const now = date.getTime();
     const birthDate = new Date(
-      `${dia.birth.month} ${dia.birth.date}, ${dia.targetYear} ${dia.birth.hourMinuteSecond}`
+      `${dia.birth.month} ${dia.birth.date}, ${targetYear} ${dia.birth.hourMinuteSecond}`
     );
 
     const remainingTime = birthDate - now;

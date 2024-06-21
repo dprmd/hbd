@@ -5,7 +5,7 @@
     "month": 7,
     "monthName": "Juli",
     "year": 2006,
-    "hourMinuteSecond": "00:00:00"
+    "hourMinuteSecond": "06:00:00"
   },
   "words": [
     "Selamat Ulang Tahun",
@@ -13,7 +13,6 @@
     "Sukses dan Bahagia",
     "Kalo Ketemu Jangan Buang Muka ;)"
   ],
-  "targetYear": 2024,
   "HDBReachPathSong": "music/slipping-through-my-fingers.mp3",
   "waitSong": {
     "title": "Seandainya",
