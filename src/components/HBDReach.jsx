@@ -8,20 +8,20 @@ export default function HBDReach() {
   const audio = useRef(null);
 
   function getAge(dateString) {
-    const today = new Date();
+    const date = new Date();
     const birthDate = new Date(dateString);
-    let age = today.getFullYear() - birthDate.getFullYear();
-    const m = today.getMonth() - birthDate.getMonth();
-    if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
+    let age = date.getFullYear() - birthDate.getFullYear();
+    const m = date.getMonth() - birthDate.getMonth();
+    if (m < 0 || (m === 0 && date.getDate() < birthDate.getDate())) {
       age--;
     }
     return age;
   }
 
   const date = new Date();
-  const day = date.getDate();
-  const month = date.toLocaleString("default", { month: "long" });
-  const year = date.getFullYear();
+  const thisDate = date.getDate();
+  const thisMonth = date.toLocaleString("default", { month: "long" });
+  const thisYear = date.getFullYear();
   const age = getAge(
     `${dia.birth.month} ${dia.birth.date}, ${dia.birth.year} ${dia.birth.hourMinuteSecond}`
   );
@@ -34,7 +34,7 @@ export default function HBDReach() {
       <div className="">
         <div className="content">
           <span className="text-md font-bold mb-4 block font-inter">
-            {day} {month} {year}
+            {thisDate} {thisMonth} {thisYear}
           </span>
           <h1 className="text-xl mb-3 font-jersey20 md:text-2xl">
             Happy Birthday
@@ -57,7 +57,6 @@ export default function HBDReach() {
         </div>
         <FireworkBG />
       </div>
-      <script src="script.js"></script>
     </div>
   );
 }

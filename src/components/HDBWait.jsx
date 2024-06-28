@@ -1,28 +1,33 @@
 /* eslint-disable react/prop-types */
-
-import { useState } from "react";
 import Countdown from "react-countdown";
 import dia from "../dia.json";
 import Rainy from "./Rainy";
 import PlayWaitSong from "./PlayWaitSong";
 
-export default function HBDWait({ HBDDay, setHBDDay }) {
+export default function HBDWait({ setHBDDay }) {
   document.title = "Waktu Terus Berjalan";
 
   const date = new Date();
-  const dateNow = date.getDate();
-  const monthNow = date.getMonth() + 1;
-  const yearNow = date.getFullYear();
-
+  const thisDate = date.getDate();
+  const thisMonth = date.getMonth() + 1;
+  let thisYear = date.getFullYear();
+  const targetDate = dia.birth.date;
+  const targetMonth = dia.birth.month;
+  const targetHourMinuteSecond = dia.birth.hourMinuteSecond;
   let targetYear;
-  if (dateNow < dia.birth.date && monthNow <= dia.birth.month) {
-    targetYear = yearNow;
-  }
-  if (dateNow > dia.birth.date && monthNow >= dia.birth.month) {
-    targetYear = yearNow + 1;
-  }
 
-  const [isHBDReach, setIsHBDReach] = useState(HBDDay);
+  if (thisDate < dia.birth.date && thisMonth <= dia.birth.month) {
+    targetYear = thisYear;
+  }
+  if (thisDate > dia.birth.date && thisMonth <= dia.birth.month) {
+    targetYear = thisYear;
+  }
+  if (thisDate < dia.birth.date && thisMonth >= dia.birth.month) {
+    targetYear = thisYear + 1;
+  }
+  if (thisDate > dia.birth.date && thisMonth >= dia.birth.month) {
+    targetYear = thisYear + 1;
+  }
 
   function renderer({ days, hours, minutes, seconds }) {
     return (
@@ -36,7 +41,7 @@ export default function HBDWait({ HBDDay, setHBDDay }) {
         <span className="font-bold block text-gray-300">
           {days} Hari {hours} Jam {minutes} Menit {seconds} Detik
         </span>
-        <PlayWaitSong isHBDReach={isHBDReach} />
+        <PlayWaitSong />
       </div>
     );
   }
@@ -44,7 +49,8 @@ export default function HBDWait({ HBDDay, setHBDDay }) {
   function timeLeft() {
     const now = date.getTime();
     const birthDate = new Date(
-      `${dia.birth.month} ${dia.birth.date}, ${targetYear} ${dia.birth.hourMinuteSecond}`
+      `${targetMonth} ${targetDate}, ${targetYear} ${targetHourMinuteSecond}`
+      // "6 28, 2024 00:00:00"
     );
 
     const remainingTime = birthDate - now;
@@ -58,8 +64,8 @@ export default function HBDWait({ HBDDay, setHBDDay }) {
         date={Date.now() + timeLeft()}
         renderer={renderer}
         onComplete={() => {
+          console.log("Is Complete");
           setHBDDay(true);
-          setIsHBDReach(true);
         }}
       />
     </div>
