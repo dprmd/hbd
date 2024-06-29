@@ -58,9 +58,29 @@ export default function PlayWaitSong() {
         >
           <span className="flex justify-center items-center">
             {isPlayed ? (
-              <span className="text-sm block bi bi-pause border border-gray-700 p-1 px-2 rounded-full"></span>
+              <span className="text-sm block border border-gray-700 p-2 rounded-full">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  fill="currentColor"
+                  viewBox="0 0 16 16"
+                >
+                  <path d="M6 3.5a.5.5 0 0 1 .5.5v8a.5.5 0 0 1-1 0V4a.5.5 0 0 1 .5-.5m4 0a.5.5 0 0 1 .5.5v8a.5.5 0 0 1-1 0V4a.5.5 0 0 1 .5-.5" />
+                </svg>
+              </span>
             ) : (
-              <span className="text-sm block bi bi-play border border-gray-700 p-1 px-2 rounded-full"></span>
+              <span className="text-sm block border border-gray-700 p-2 rounded-full">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  fill="currentColor"
+                  viewBox="0 0 16 16"
+                >
+                  <path d="M10.804 8 5 4.633v6.734zm.792-.696a.802.802 0 0 1 0 1.392l-6.363 3.692C4.713 12.69 4 12.345 4 11.692V4.308c0-.653.713-.998 1.233-.696z" />
+                </svg>
+              </span>
             )}
           </span>
           <span className="pl-2 pr-3">{isPlayed ? "Pause" : "Play"} Song</span>

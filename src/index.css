@@ -1,18 +1,35 @@
-@import url("https://fonts.googleapis.com/css2?family=Inter&family=Jersey+20&family=Jersey+25&family=Josefin+Sans&family=Poppins:wght@400;700&display=swap");
-@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css");
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-body {
-  margin: 0;
-  background: #020202;
-  overflow: hidden;
+@font-face {
+  font-family: "Jersey 20";
+  src: url("/fonts/Jersey_20/Jersey20-Regular.ttf") format("truetype");
 }
 
-* {
-  @apply text-white;
+@font-face {
+  font-family: "Jersey 25";
+  src: url("/fonts/Jersey_25/Jersey25-Regular.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Inter";
+  src: url("/fonts/Inter/static/Inter-Regular.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Poppins";
+  src: url("/fonts/Poppins/Poppins-Regular.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Josefin Sans";
+  src: url("/fonts/Josefin_Sans/static/JosefinSans-Regular.ttf")
+    format("truetype");
+}
+
+body {
+  @apply m-0 bg-[#020202] overflow-hidden text-white;
 }
 
 .content {
@@ -41,4 +58,21 @@ canvas {
   left: 0;
   width: 100%;
   height: 100%;
+}
+
+.debug {
+  @apply border border-slate-200;
+}
+
+.spin {
+  animation: spin 5s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }

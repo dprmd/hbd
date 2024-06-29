@@ -50,7 +50,6 @@ export default function HBDWait({ setHBDDay }) {
     const now = date.getTime();
     const birthDate = new Date(
       `${targetMonth} ${targetDate}, ${targetYear} ${targetHourMinuteSecond}`
-      // "6 28, 2024 00:00:00"
     );
 
     const remainingTime = birthDate - now;
@@ -64,7 +63,6 @@ export default function HBDWait({ setHBDDay }) {
         date={Date.now() + timeLeft()}
         renderer={renderer}
         onComplete={() => {
-          console.log("Is Complete");
           setHBDDay(true);
         }}
       />
