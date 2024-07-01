@@ -31,12 +31,20 @@ const addNewUserToFirestoreIfNotExists = async () => {
     const newUserId = v4();
     const device = getDeviceName();
     localStorage.setItem("hbd-userId", newUserId);
+    const seen = new Date();
+    const day = seen.getDate();
+    const month = seen.toLocaleString("default", { month: "long" });
+    const year = seen.getFullYear();
+    const hours = seen.getHours();
+    const minutes = seen.getMinutes();
+    const seconds = seen.getSeconds();
+    const seenFormat = `${day} ${month} ${year} , ${hours}:${minutes}:${seconds}`;
     try {
       await setDoc(doc(firestore, collectionName, newUserId), {
         userId: newUserId,
         device,
-        lastSeen: "",
-        seenHistory: [],
+        lastSeen: seenFormat,
+        seenHistory: [seenFormat],
       });
       return newUserId;
     } catch (error) {

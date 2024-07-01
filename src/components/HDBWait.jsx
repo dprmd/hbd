@@ -64,7 +64,7 @@ export default function HBDWait({ setHBDDay }) {
 
   return (
     <div className="mytext w-screen h-screen flex justify-center pt-60 relative md:pt-50">
-      {/* <Rainy /> */}
+      <Rainy />
       <Countdown
         date={Date.now() + timeLeft()}
         renderer={renderer}
