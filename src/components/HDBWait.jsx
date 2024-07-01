@@ -16,16 +16,22 @@ export default function HBDWait({ setHBDDay }) {
   const targetHourMinuteSecond = dia.birth.hourMinuteSecond;
   let targetYear;
 
-  if (thisDate < dia.birth.date && thisMonth <= dia.birth.month) {
+  if (thisDate < dia.birth.date && thisMonth < dia.birth.month) {
     targetYear = thisYear;
   }
-  if (thisDate > dia.birth.date && thisMonth <= dia.birth.month) {
+  if (thisDate > dia.birth.date && thisMonth < dia.birth.month) {
     targetYear = thisYear;
   }
-  if (thisDate < dia.birth.date && thisMonth >= dia.birth.month) {
+  if (thisDate < dia.birth.date && thisMonth === dia.birth.month) {
+    targetYear = thisYear;
+  }
+  if (thisDate > dia.birth.date && thisMonth === dia.birth.month) {
     targetYear = thisYear + 1;
   }
-  if (thisDate > dia.birth.date && thisMonth >= dia.birth.month) {
+  if (thisDate < dia.birth.date && thisMonth > dia.birth.month) {
+    targetYear = thisYear + 1;
+  }
+  if (thisDate > dia.birth.date && thisMonth > dia.birth.month) {
     targetYear = thisYear + 1;
   }
 
