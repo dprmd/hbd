@@ -20,8 +20,9 @@ export default function PlayWaitSong() {
         .getElementById("waitSongCanvas")
         .transferControlToOffscreen();
       const worker = new Worker(
-        new URL("./playWaitSongWorker.js", import.meta.url)
+        new URL("../playWaitSongWorker.js", import.meta.url)
       );
+      console.log(import.meta.url);
 
       canvas.width = window.innerWidth;
       canvas.height = window.innerHeight;
