@@ -4,7 +4,6 @@ export async function getTimeFromServer() {
   try {
     const response = await fetch("https://worldtimeapi.org/api/ip");
     if (!response.ok) {
-      a;
       throw new Error("Network response was not ok " + response.statusText);
     }
     const data = await response.json();
