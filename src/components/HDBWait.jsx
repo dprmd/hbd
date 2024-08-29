@@ -3,7 +3,7 @@ import Countdown from "react-countdown";
 import dia from "../dia.json";
 import Rainy from "./Rainy";
 import PlayWaitSong from "./PlayWaitSong";
-import { getTimeFromServer } from "./../utils/time";
+import { getTimeFromServer } from "dprmd-utils-js/time";
 import { useState } from "react";
 import { useEffect } from "react";
 
@@ -76,7 +76,7 @@ export default function HBDWait({ setHBDDay }) {
     const targetYear = getTargetYear(date);
     const now = date.getTime();
     const birthDate = new Date(
-      `${targetMonth} ${targetDate}, ${targetYear} ${targetHourMinuteSecond}`
+      `${targetMonth} ${targetDate}, ${targetYear} ${targetHourMinuteSecond}`,
     );
 
     const remainingTime = birthDate - now;

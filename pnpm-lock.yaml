@@ -8,6 +8,9 @@ importers:
 
   .:
     dependencies:
+      dprmd-utils-js:
+        specifier: ^1.0.0
+        version: 1.0.0
       react:
         specifier: ^18.3.1
         version: 18.3.1
@@ -726,6 +729,9 @@ packages:
   doctrine@3.0.0:
     resolution: {integrity: sha512-yS+Q5i3hBf7GBkd4KG8a7eBNNWNGLTaEwwYWUijIYM7zrlYDM0BFXHjjPWlWZ1Rg7UaddZeIDmi9jF3HmqiQ2w==}
     engines: {node: '>=6.0.0'}
+
+  dprmd-utils-js@1.0.0:
+    resolution: {integrity: sha512-fa0BtS9spTY5rlSBUc+miebr7ghHAVCqr49AFsqOI+YgTBV1Wz7hQm1MpaJ2gdpQ2h5dTeN7lX9vCVs/wEF8pw==}
 
   eastasianwidth@0.2.0:
     resolution: {integrity: sha512-I88TYZWc9XiYHRQ4/3c5rjjfgkjhLyW2luGIheGERbNQ6OY7yTybanSpDXZa8y7VUP9YmDcYa+eyq4ca7iLqWA==}
@@ -2431,6 +2437,8 @@ snapshots:
   doctrine@3.0.0:
     dependencies:
       esutils: 2.0.3
+
+  dprmd-utils-js@1.0.0: {}
 
   eastasianwidth@0.2.0: {}
 
